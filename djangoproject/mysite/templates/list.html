@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title%}Views List{% endblock%}
+
+{% block content%}
+    <h1>{{ls.name}}</h1>
+        <form method="post" action="#">
+    <ul>
+        {% for Item in ls.Item_set.all%}
+            {% if Item.complete == True%}
+                 <li>{{Item.text}}</li>
+        {% else %}
+                <li>{{Item.text}}</li>
+        {% endif %}
+    {%endfor%}
+        </ul>
+            <button type="submit" name="save" value="save">Save</button>
+            <button type="submit" name="newitem" value="newitem">Add Item</button>
+         </form>
+{% endblock%}
